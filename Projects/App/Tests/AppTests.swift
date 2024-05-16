@@ -6,3 +6,4 @@ final class AppTests: XCTestCase {
         XCTAssertEqual(2+2, 4)
     }
 }
+
