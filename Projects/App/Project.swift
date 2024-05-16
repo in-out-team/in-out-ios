@@ -1,31 +1,34 @@
 import ProjectDescription
 
 let project = Project(
-    name: "InOutIos",
+    name: "App",
+    options: .options(
+        automaticSchemesOptions: .disabled
+    ),
     targets: [
         .target(
-            name: "InOutIos",
+            name: "App",
             destinations: .iOS,
             product: .app,
-            bundleId: "io.tuist.InOutIos",
+            bundleId: "io.tuist.App",
             infoPlist: .extendingDefault(
                 with: [
                     "UILaunchStoryboardName": "LaunchScreen.storyboard",
                 ]
             ),
-            sources: ["InOutIos/Sources/**"],
-            resources: ["InOutIos/Resources/**"],
+            sources: ["Sources/**"],
+            resources: ["Resources/**"],
             dependencies: []
         ),
         .target(
-            name: "InOutIosTests",
+            name: "AppTests",
             destinations: .iOS,
             product: .unitTests,
-            bundleId: "io.tuist.InOutIosTests",
+            bundleId: "io.tuist.AppTests",
             infoPlist: .default,
-            sources: ["InOutIos/Tests/**"],
+            sources: ["Tests/**"],
             resources: [],
-            dependencies: [.target(name: "InOutIos")]
+            dependencies: [.target(name: "App")]
         ),
     ]
 )
