@@ -2,9 +2,11 @@ import SwiftUI
 
 public struct ContentView: View {
     public init() {}
-
+    
+    
+    
     public var body: some View {
-        Text("Hello, World!")
+        Text("\(Config.appEnv)-\(Config.buildEnv)")
             .padding()
     }
 }
@@ -12,6 +14,6 @@ public struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+         ContentView()
     }
 }
