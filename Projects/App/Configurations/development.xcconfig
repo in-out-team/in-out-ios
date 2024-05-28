@@ -7,3 +7,8 @@
 
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
+
+
+APP_ENV = Development
+API_URL =
+API_DOC_URL =
