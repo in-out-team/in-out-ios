@@ -61,10 +61,18 @@ let basePlist: [String: Plist.Value] = [
     "ITSAppUsesNonExemptEncryption": false
 ]
 
+let runActionOptions = RunActionOptions.options(
+    language: "ko",
+    region: "KR"
+)
+
 let project = Project(
     name: "App",
     options: .options(
-        automaticSchemesOptions: .disabled
+        automaticSchemesOptions: .disabled,
+        defaultKnownRegions: ["ko", "en"],
+        developmentRegion: "ko"
+        // textSettings: .textSettings(usesTabs: false, indentWidth: 2, tabWidth: 2)
     ),
     settings: settings,
     targets: [
@@ -96,14 +104,20 @@ let project = Project(
             name: "development",
             shared: true,
             buildAction: .buildAction(targets: ["App"]),
-            runAction: .runAction(configuration: .developmentDebug),
+            runAction: .runAction(
+                configuration: .developmentDebug,
+                options: runActionOptions
+            ),
             archiveAction: .archiveAction(configuration: .developmentRelease)
         ),
         .scheme(
             name: "production",
             shared: true,
             buildAction: .buildAction(targets: ["App"]),
-            runAction: .runAction(configuration: .productionDebug),
+            runAction: .runAction(
+                configuration: .productionDebug,
+                options: runActionOptions
+            ),
             archiveAction: .archiveAction(configuration: .productionRelease)
         )
     ]
