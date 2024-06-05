@@ -62,8 +62,8 @@ let basePlist: [String: Plist.Value] = [
 ]
 
 let runActionOptions = RunActionOptions.options(
-    language: "ko",
-    region: "KR"
+    language: "en", // or "ko"
+    region: "KR" // or "US"
 )
 
 let project = Project(
@@ -71,7 +71,7 @@ let project = Project(
     options: .options(
         automaticSchemesOptions: .disabled,
         defaultKnownRegions: ["ko", "en"],
-        developmentRegion: "ko"
+        developmentRegion: "en"
         // textSettings: .textSettings(usesTabs: false, indentWidth: 2, tabWidth: 2)
     ),
     settings: settings,
