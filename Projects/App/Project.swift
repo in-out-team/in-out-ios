@@ -74,6 +74,7 @@ let project = Project(
         developmentRegion: "en"
         // textSettings: .textSettings(usesTabs: false, indentWidth: 2, tabWidth: 2)
     ),
+    // packages: [], Xcode Tool SPM
     settings: settings,
     targets: [
         .target(
@@ -86,7 +87,9 @@ let project = Project(
             ),
             sources: ["Sources/**"],
             resources: ["Resources/**"],
-            dependencies: []
+            dependencies: [
+                .external(name: "SplineRuntime")
+            ]
         ),
         .target(
             name: "AppTests",
