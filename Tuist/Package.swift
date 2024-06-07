@@ -8,7 +8,7 @@ let packageSettings = PackageSettings(
     // Customize the product types for specific package product
     // Default is .staticFramework
     // productTypes: ["Alamofire": .framework,]
-    productTypes: ["SplineRuntime": .framework]
+    // productTypes: ["SplineRuntime": .framework]
 )
 #endif
 
