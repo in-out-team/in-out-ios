@@ -5,6 +5,10 @@ public struct ContentView: View {
     public init() {}
     
     public var body: some View {
+        
+        // // fetching from local
+        // let url = Bundle.main.url(forResource: "scene", withExtension: "splineswift")!
+        
         let url = URL(string: "https://build.spline.design/BI46V7-yssfMqHOjsB3z/scene.splineswift")!
         
         VStack {

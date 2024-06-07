@@ -75,6 +75,11 @@ let project = Project(
         // textSettings: .textSettings(usesTabs: false, indentWidth: 2, tabWidth: 2)
     ),
     // packages: [], Xcode Tool SPM
+    packages: [
+        .package(url: "https://github.com/apple/swift-openapi-generator", .upToNextMinor(from: "1.2.1")),
+        .package(url: "https://github.com/apple/swift-openapi-runtime", .upToNextMinor(from: "1.4.0")),
+        .package(url: "https://github.com/apple/swift-openapi-urlsession", .upToNextMinor(from: "1.0.1")),
+    ],
     settings: settings,
     targets: [
         .target(
@@ -88,7 +93,11 @@ let project = Project(
             sources: ["Sources/**"],
             resources: ["Resources/**"],
             dependencies: [
-                .external(name: "SplineRuntime")
+                .external(name: "SplineRuntime"),
+                
+                .package(product: "OpenAPIGenerator", type: .plugin),
+                .package(product: "OpenAPIRuntime"),
+                .package(product: "OpenAPIURLSession")
             ]
         ),
         .target(
