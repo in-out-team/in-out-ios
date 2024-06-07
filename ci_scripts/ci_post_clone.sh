@@ -17,3 +17,8 @@ mise doctor # verify the output of mise is correct on CI
 cd ..
 ~/.local/bin/mise x -- tuist fetch
 ~/.local/bin/mise x -- tuist generate # Generate the Xcode Project using Tuist
+
+# OpenAPIGenerator
+echo "Setting defaults for OpenAPIGenerator..."
+set -euo pipefail
+defaults write com.apple.dt.Xcode IDESkipPackagePluginFingerprintValidatation -bool YES
