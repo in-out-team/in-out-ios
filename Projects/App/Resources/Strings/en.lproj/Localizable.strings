@@ -6,4 +6,11 @@
   
 */
 
-"Common.AppName" = "IN-OUT";
+"Common.appName" = "IN-OUT";
+
+"SignIn.Title.first" = "The Most Effective";
+"SignIn.Title.second" = "Language Learning";
+"SignIn.Title.Third.full" = "for Your Memory";
+"SignIn.Title.Third.plain" = "for";
+"SignIn.Title.Third.highlight" = "Your Memory";
+"SignIn.subtitle" = "Be with You Every Day, Every Moment";

@@ -12,7 +12,7 @@ public struct ContentView: View {
         let url = URL(string: "https://build.spline.design/BI46V7-yssfMqHOjsB3z/scene.splineswift")!
         
         VStack {
-            Image(asset: AppAsset.Assets.testIcon)
+            Image(asset: AppAsset.Images.testIcon)
             Text("Image Test").padding(.bottom, 30)
             
             try? SplineView(sceneFileURL: url).ignoresSafeArea(.all)
