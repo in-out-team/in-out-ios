@@ -53,13 +53,24 @@ let settings: Settings = .settings(
 )
 
 let xcconfig: [String: Plist.Value] = [
-    "APP_ENV": "$(APP_ENV)"
+    "APP_ENV": "$(APP_ENV)",
+    "API_URL": "$(API_URL)"
+]
+
+let googleSignInPlist: [String: Plist.Value] = [
+    "GIDClientID": "$(GOOGLE_CLIENT_ID)",
+    "CFBundleURLTypes": [
+        [
+            "CFBundleURLSchemes": ["$(GOOGLE_REVERSED_CLIENT_ID)"]
+        ]
+    ]
 ]
 
 let basePlist: [String: Plist.Value] = [
     "UILaunchStoryboardName": "LaunchScreen",
-    "ITSAppUsesNonExemptEncryption": false
-]
+    "ITSAppUsesNonExemptEncryption": false,
+    "UISupportedInterfaceOrientations": ["UIInterfaceOrientationPortrait"]
+].merging(googleSignInPlist, uniquingKeysWith: { $1 })
 
 let runActionOptions = RunActionOptions.options(
     language: "en", // or "ko"
@@ -80,7 +91,11 @@ let project = Project(
         .package(url: "https://github.com/apple/swift-openapi-runtime", .upToNextMinor(from: "1.4.0")),
         .package(url: "https://github.com/apple/swift-openapi-urlsession", .upToNextMinor(from: "1.0.1")),
         
-        .package(url: "https://github.com/splinetool/spline-ios", .branch("main"))
+        .package(url: "https://github.com/splinetool/spline-ios", .branch("main")),
+        
+        .package(url: "https://github.com/google/GoogleSignIn-iOS", .upToNextMinor(from: "7.1.0")),
+        
+        .package(url: "https://github.com/auth0/JWTDecode.swift", .upToNextMinor(from: "3.1.0"))
     ],
     settings: settings,
     targets: [
@@ -95,11 +110,16 @@ let project = Project(
             sources: ["Sources/**"],
             resources: ["Resources/**"],
             dependencies: [
-                .package(product: "SplineRuntime"),
-        
                 .package(product: "OpenAPIGenerator", type: .plugin),
                 .package(product: "OpenAPIRuntime"),
-                .package(product: "OpenAPIURLSession")
+                .package(product: "OpenAPIURLSession"),
+                
+                .package(product: "SplineRuntime"),
+                
+                .package(product: "GoogleSignIn"),
+                .package(product: "GoogleSignInSwift"),
+                
+                .package(product: "JWTDecode")
             ]
         ),
         .target(

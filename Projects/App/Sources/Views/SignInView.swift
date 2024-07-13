@@ -1,16 +1,8 @@
-//
-//  Onboarding.swift
-//  App
-//
-//  Created by kwh on 7/1/24.
-//
-
 import SwiftUI
+import GoogleSignIn
 
-struct Onboarding: View {
-    public init() {
-        
-    }
+struct SignInView: View {
+    @EnvironmentObject private var onBoarding: OnBoardingVM
     
     var attributedString: AttributedString {
         var attributedString = AttributedString(AppStrings.SignIn.Title.Third.full)
@@ -26,7 +18,7 @@ struct Onboarding: View {
         return attributedString
     }
     
-    public var body: some View {
+    var body: some View {
         GeometryReader { geometry in
             
             VStack(spacing: 0) {
@@ -90,7 +82,7 @@ struct Onboarding: View {
                         
                     }.position(x: geometry.size.width / 2, y: 550)
                     
-                }.background(.white)
+                }
                 
                 VStack(spacing: 28) {
                     
@@ -99,26 +91,30 @@ struct Onboarding: View {
                         .foregroundColor(AppAsset.Colors.textHighlightMint.swiftUIColor)
                     
                     HStack(spacing: 12) {
-                        Image(asset: AppAsset.Images.kakaoAuthImage)
-                            .resizable()
-                            .frame(width: 54, height: 54)
-                        Image(asset: AppAsset.Images.googleAuthImage)
-                            .resizable()
-                            .frame(width: 54, height: 54)
-                        Image(asset: AppAsset.Images.appleAuthImage)
-                            .resizable()
-                            .frame(width: 54, height: 54)
+                        Button(action: {}) {
+                            Image(asset: AppAsset.Images.kakaoAuthImage)
+                                .resizable()
+                                .frame(width: 54, height: 54)
+                        }.buttonStyle(.plain)
+                        
+                        Button(action: onBoarding.getGoogleAuth) {
+                            Image(asset: AppAsset.Images.googleAuthImage)
+                                .resizable()
+                                .frame(width: 54, height: 54)
+                        }.buttonStyle(.plain)
+                        
+                        Button(action: {}) {
+                            Image(asset: AppAsset.Images.appleAuthImage)
+                                .resizable()
+                                .frame(width: 54, height: 54)
+                        }.buttonStyle(.plain)
                     }
                     
-                }.frame(maxWidth: .infinity).padding(.bottom, 24).background(.white)
+                }.frame(maxWidth: .infinity).padding(.bottom, 24)
                 
             }
             
-        }
+        }.background(.white)
         
     }
-}
-
-#Preview {
-    Onboarding()
 }

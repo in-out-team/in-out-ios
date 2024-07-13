@@ -21,7 +21,11 @@ public struct ContentView: View {
             Text(AppStrings.Common.appName)
                 .font(AppFontFamily.Pretendard.bold.swiftUIFont(size: 20))
                 .padding(.top, 30)
+            
             Text("\(Config.appEnv)-\(Config.buildEnv)")
+                .padding()
+            
+            Text("\(Config.appEnv)")
                 .padding()
             
             Spacer(minLength: 50)
