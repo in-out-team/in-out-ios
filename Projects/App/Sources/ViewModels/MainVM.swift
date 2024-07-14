@@ -13,6 +13,7 @@ struct Tab {
     let icon: Image
     let selectedIcon: Image
     let iconSize: CGSize
+    var offset: CGPoint? = nil
 }
 
 class MainVM: ObservableObject {
@@ -24,7 +25,8 @@ class MainVM: ObservableObject {
             name: .HOME,
             icon: Image(asset: AppAsset.Images.cardsGray),
             selectedIcon: Image(asset: AppAsset.Images.cardsWhite),
-            iconSize: .init(width: 36, height: 36)
+            iconSize: .init(width: 36, height: 36),
+            offset: .init(x: 2, y: 0)
         ),
         .TALK_TO_AI: Tab(
                 screen: AnyView(TalkToAiView()),

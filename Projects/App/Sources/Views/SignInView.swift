@@ -12,7 +12,7 @@ struct SignInView: View {
         }
         
         if let range = attributedString.range(of: AppStrings.SignIn.Title.Third.highlight) {
-            attributedString[range].foregroundColor = AppAsset.Colors.textHighlightBlue.swiftUIColor
+            attributedString[range].foregroundColor = AppAsset.Colors.primaryBlueText.swiftUIColor
         }
         
         return attributedString
@@ -25,41 +25,41 @@ struct SignInView: View {
                 
                 ZStack() {
                     Circle()
-                        .fill(AppAsset.Colors.primaryPurple.swiftUIColor)
+                        .fill(AppAsset.Colors.primaryPurpleBG.swiftUIColor)
                         .frame(width: 160, height: 160)
                         .position(x: 101, y: 151)
                         .opacity(0.8)
                     
                     Circle()
-                        .fill(AppAsset.Colors.primaryMint.swiftUIColor)
+                        .fill(AppAsset.Colors.primaryMintBG.swiftUIColor)
                         .frame(width: 148, height: 148)
                         .position(x: geometry.size.width - 84, y: 80)
                         .opacity(0.8)
                     
                     Circle()
-                        .fill(AppAsset.Colors.primaryGray.swiftUIColor)
+                        .fill(AppAsset.Colors.primaryGrayBG.swiftUIColor)
                         .frame(width: 100, height: 100)
                         .position(x: 236, y: 198)
                     
                     Circle()
-                        .fill(AppAsset.Colors.primaryRed.swiftUIColor)
+                        .fill(AppAsset.Colors.primaryRedBG.swiftUIColor)
                         .frame(width: 180, height: 180)
                         .position(x: geometry.size.width - 10, y: 254)
                         .opacity(0.6)
                     
                     Circle()
-                        .fill(AppAsset.Colors.primaryOrange.swiftUIColor)
+                        .fill(AppAsset.Colors.primaryOrangeBG.swiftUIColor)
                         .frame(width: 148, height: 148)
                         .position(x: 10, y: 294)
                         .opacity(0.8)
                     
                     Circle()
-                        .fill(AppAsset.Colors.primaryGray.swiftUIColor)
+                        .fill(AppAsset.Colors.primaryGrayBG.swiftUIColor)
                         .frame(width: 220, height: 220)
                         .position(x: 196, y: 364)
                     
                     Circle()
-                        .fill(AppAsset.Colors.primaryBlue.swiftUIColor)
+                        .fill(AppAsset.Colors.primaryBlueBG.swiftUIColor)
                         .frame(width: 148, height: 148)
                         .position(x: geometry.size.width - 8, y: 436)
                         .opacity(0.8)
@@ -73,11 +73,11 @@ struct SignInView: View {
                         VStack(alignment: .trailing, spacing: 6) {
                             Text(AppStrings.SignIn.Title.second)
                                 .font(AppFontFamily.Pretendard.bold.swiftUIFont(size: 36))
-                                .foregroundColor(AppAsset.Colors.textHighlightPurple.swiftUIColor)
+                                .foregroundColor(AppAsset.Colors.primaryPurpleText.swiftUIColor)
                             
                             Text(attributedString)
                                 .font(AppFontFamily.Pretendard.semiBold.swiftUIFont(size: 28))
-                                .foregroundColor(AppAsset.Colors.textHighlightBlue.swiftUIColor)
+                                .foregroundColor(AppAsset.Colors.primaryBlueText.swiftUIColor)
                         }
                         
                     }.position(x: geometry.size.width / 2, y: 550)
@@ -88,7 +88,7 @@ struct SignInView: View {
                     
                     Text(AppStrings.SignIn.subtitle)
                         .font(AppFontFamily.Pretendard.medium.swiftUIFont(size: 14))
-                        .foregroundColor(AppAsset.Colors.textHighlightMint.swiftUIColor)
+                        .foregroundColor(AppAsset.Colors.primaryMintText.swiftUIColor)
                     
                     HStack(spacing: 12) {
                         Button(action: {}) {
