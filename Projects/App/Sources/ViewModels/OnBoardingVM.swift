@@ -5,6 +5,7 @@ import GoogleSignIn
 enum Screen: String {
     case HOME
     case SIGN_IN
+    case GUIDANCE
 }
 
 enum PROVIDER {
@@ -16,14 +17,29 @@ enum PROVIDER {
 class OnBoardingVM: ObservableObject {
     @Published var path: [Screen] = [] {
         didSet {
-            #if DEBUG
+#if DEBUG
             print("path: ", path)
-            #endif
+#endif
+        }
+    }
+    
+    @Published var hasSeenGuidance = false {
+        didSet {
+            
+            DispatchQueue.main.async {
+                if self.hasSeenGuidance {
+                    self.path.append(.SIGN_IN)
+                } else {
+                    self.path.append(.GUIDANCE)
+                }
+            }
+            
         }
     }
     
     @Published var isAuthenticated = false {
         didSet {
+            guard hasSeenGuidance else { return }
             
             DispatchQueue.main.async {
                 if self.isAuthenticated {
@@ -37,7 +53,12 @@ class OnBoardingVM: ObservableObject {
     }
     
     init() {
+        checkHasSeenGuidance()
         checkAccessToken()
+    }
+    
+    private func checkHasSeenGuidance() {
+        hasSeenGuidance = UserDefaults.standard.bool(forKey: UserDefaultConstants.User.HAS_SEEN_GUIDE)
     }
     
     private func checkAccessToken() {
@@ -47,6 +68,11 @@ class OnBoardingVM: ObservableObject {
         }
         
         isAuthenticated = !accessToken.isEmpty
+    }
+    
+    func onCompleteGuidance() {
+        hasSeenGuidance = true
+        UserDefaults.standard.set(true, forKey: UserDefaultConstants.User.HAS_SEEN_GUIDE)
     }
     
     func getGoogleAuth() {
