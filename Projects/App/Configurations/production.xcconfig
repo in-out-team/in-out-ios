@@ -10,5 +10,9 @@
 
 
 APP_ENV = Production
-API_URL = 
-API_DOC_URL = 
+API_URL = http:/$()/localhost:8080/v1
+API_DOC_URL = http:/$()/localhost:8080/v3/api-docs
+
+GOOGLE_CLIENT_ID = 558932276791-mlcosi4nmdshftnljadv8ibb2mujafep.apps.googleusercontent.com
+GOOGLE_REVERSED_CLIENT_ID = com.googleusercontent.apps.558932276791-mlcosi4nmdshftnljadv8ibb2mujafep
+
