@@ -14,3 +14,16 @@
 "SignIn.Title.Third.plain" = "for";
 "SignIn.Title.Third.highlight" = "Your Memory";
 "SignIn.subtitle" = "Be with You Every Day, Every Moment";
+
+"Guidance.First.title" = "First, your location is\nSouth Korea";
+"Guidance.First.description" = "Would you like to set the default\nlanguage to";
+"Guidance.First.subDescription" = "If not, please select the default language";
+
+"Guidance.Second.title" = "The app is simple";
+"Guidance.Second.description" = "Simply tap the button to add\nthe words you want to learn.";
+
+"Guidance.Third.title" = "Every day, a study\ncards is provided";
+"Guidance.Third.description" = "Remember longer\nthrough feedback on the cards\nand expanded learning.";
+
+"Guidance.Fourth.title" = "That’s really it!";
+"Guidance.Fourth.description" = "Helping your memory.\nWith you every day, every moment.";

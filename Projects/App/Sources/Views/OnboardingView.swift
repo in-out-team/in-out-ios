@@ -11,6 +11,8 @@ struct OnboardingView: View {
                     MainView().navigationBarHidden(true)
                 case .SIGN_IN:
                     SignInView().navigationBarHidden(true)
+                case .GUIDANCE:
+                    GuidanceView().navigationBarHidden(true)
                 }
             }
         }
