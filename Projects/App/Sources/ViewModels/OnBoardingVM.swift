@@ -17,9 +17,9 @@ enum PROVIDER {
 class OnBoardingVM: ObservableObject {
     @Published var path: [Screen] = [] {
         didSet {
-#if DEBUG
+            #if DEBUG
             print("path: ", path)
-#endif
+            #endif
         }
     }
     
@@ -58,7 +58,7 @@ class OnBoardingVM: ObservableObject {
     }
     
     private func checkHasSeenGuidance() {
-        hasSeenGuidance = UserDefaults.standard.bool(forKey: UserDefaultConstants.User.HAS_SEEN_GUIDE)
+         hasSeenGuidance = UserDefaults.standard.bool(forKey: UserDefaultConstants.User.HAS_SEEN_GUIDE)
     }
     
     private func checkAccessToken() {

@@ -56,9 +56,11 @@ struct GuidanceItem: View {
     
     var body: some View {
         VStack(spacing: 0) {
+
             data.backgroundImage
                 .resizable()
                 .frame(width: 342, height: 426)
+                .padding(.top, 12)
             
             VStack(spacing: 0) {
                 Text(data.title)
@@ -82,6 +84,8 @@ struct GuidanceItem: View {
                 }
             }
             .padding(.horizontal, 24)
+            
+            Spacer()
         }
     }
 }
@@ -153,7 +157,6 @@ struct PageControl: View {
 struct GuidanceView: View {
     @EnvironmentObject private var onBoarding: OnBoardingVM
     @State private var currentTab = 0
-    @State private var dragOffset: CGSize = .zero
     
     var body: some View {
         
