@@ -1,8 +1,8 @@
 import SwiftUI
 
-
-
 struct HomeView: View {
+    @State private var isPresenting = false
+
     var body: some View {
         VStack {
             Spacer()
@@ -12,11 +12,15 @@ struct HomeView: View {
             Spacer()
         }
     
-        Button(action: {}) {
+        Button(action: { isPresenting = true }) {
             Image(asset: AppAsset.Images.add)
                 .resizable()
                 .frame(width: 60, height: 60)
-        }.offset(x: 144, y: -4)
+        }
+        .offset(x: 144, y: -4)
+        .sheet(isPresented: $isPresenting) {
+            AddWordView()
+        }
     }
 }
 

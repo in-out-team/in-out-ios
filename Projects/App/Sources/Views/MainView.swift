@@ -11,7 +11,7 @@ struct CustomTabsView: View {
             
             Capsule()
                 .frame(width: 190, height: 66)
-                .foregroundColor(AppAsset.Colors.primaryGray.swiftUIColor)
+                .foregroundColor(AppAsset.Colors.primaryGrayBG.swiftUIColor)
                 .opacity(0.2)
             
             HStack(spacing: 6) {
@@ -21,7 +21,7 @@ struct CustomTabsView: View {
                             ZStack {
                                 if tab.name == tabSelection {
                                     Circle()
-                                        .fill(AppAsset.Colors.primaryPurple.swiftUIColor)
+                                        .fill(AppAsset.Colors.primaryPurpleBG.swiftUIColor)
                                         .frame(width: 54, height: 54)
                                         // .matchedGeometryEffect(
                                         //    id: "SelectedTabId",
@@ -39,6 +39,10 @@ struct CustomTabsView: View {
                                     .frame(
                                         width: tab.iconSize.width,
                                         height: tab.iconSize.height
+                                    )
+                                    .offset(
+                                        x: tab.offset?.x ?? 0,
+                                        y: tab.offset?.y ?? 0
                                     )
                             }
                         }
