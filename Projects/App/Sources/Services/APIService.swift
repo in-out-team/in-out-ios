@@ -108,11 +108,15 @@ final class APIService {
                 // Other handle http methods
             }
             
+            try await Task.sleep(nanoseconds: UInt64(1.0 * 1_000_000_000))
+
             // Step 8: resume url session task
             let (data, response) = try await URLSession.shared.data(for: request)
             
             if (response as? HTTPURLResponse)?.statusCode == 401 {
-                return await updateAccessToken(request: request)
+                // TODO: 리프레시 토큰
+                return .failure(.notAuthenticated)
+                // return await updateAccessToken(request: request)
             }
             
             guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {

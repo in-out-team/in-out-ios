@@ -19,7 +19,7 @@ struct HomeView: View {
         }
         .offset(x: 144, y: -4)
         .sheet(isPresented: $isPresenting) {
-            AddWordView()
+            AddWordView(isPresenting: $isPresenting)
         }
     }
 }
