@@ -1,5 +1,5 @@
 import SwiftUI
-import SplineRuntime
+// import SplineRuntime
 
 public struct ContentView: View {
     public init() {}
@@ -15,7 +15,7 @@ public struct ContentView: View {
             Image(asset: AppAsset.Images.testIcon)
             Text("Image Test").padding(.bottom, 30)
             
-            try? SplineView(sceneFileURL: url).ignoresSafeArea(.all)
+            // try? SplineView(sceneFileURL: url).ignoresSafeArea(.all)
             Text("Spline Test").padding(.top, 30)
             
             Text(AppStrings.Common.appName)

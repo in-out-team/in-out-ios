@@ -1,12 +1,17 @@
-//
-//  View.swift
-//  App
-//
-//  Created by kwh on 7/6/24.
-//
-
 import SwiftUI
 
 extension View {
+    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+        clipShape(RoundedCorner(corners: corners, radius: radius))
+    }
+}
+
+struct RoundedCorner: Shape {
+    var corners: UIRectCorner
+    var radius: CGFloat
     
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        return Path(path.cgPath)
+    }
 }
